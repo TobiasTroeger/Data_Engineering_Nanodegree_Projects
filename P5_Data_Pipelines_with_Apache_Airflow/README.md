@@ -1,17 +1,11 @@
-# Project_3: Cloud Data Warehouse
+# Project 5: Data Pipelines with Apache Airflow
 
 ## I - Introduction to the Project
 
-Music streaming startup Sparkyfiy has expanded its operations along with its user base and the songs available in its database. The company is now looking to move its processes to the cloud to improve future growth and scalability of operations.
+As a Data Engineer for music streaming company Sparkify, my role on this project is to automate ETL pipelines for Sparkify's subscriber user data.
+The user data is located in S3 buckets. The resulting warehouse is located in AWS Redshift.
 
-Sparkyfies data resides in S3, in the form of JSON logs of user activity in the app as well as metadata of the songs, also as JSON logs.
-
-As a Data Engineer, my job is to build a cloud data warehouse in AWS based on the S3 data.
-For this purpose, an ETL pipeline has to be created to extract the data from the S3 buckets and store it in Redshift. Based on this data, a fact table and several dimensional tables are to be created.
-
-The goal is to give Sparkyfie's data analysis team a better insight into user activity on their app.
-The performance of the new database can be tested with queries that Sparkyfie's data analysis team will provide and match against their expected results.
-
+The individual operators are to be designed in such a way that they are as modular as possible and enable subsequent monitoring.
 
 ## II - Datasets
 
@@ -90,15 +84,30 @@ Below the different tables can be found:
 
 ## IV - Project Files
 
-Files in the project folder:
+All files are located in the `airflow` folder. 
 
-    create_tables.py -  drops all tables and creates the tables for staging and the star schema 
-    etl.py           -  copies the data from S3 into the staging tables and then transforms them to create the star schema
-    sql_queries.py   -  contains all necessary SQL queries
-    dwh.cfg          -  credentials for AWS cloud
+### Subfolder `dags`:
+
+    udac_example_dag.py - Main dag file for airflow. Input for all operators, dag parameters and definition of task dependencies
     
+    
+### Subfolder `plugins/helpers`    
 
-## V - ETL Pipeline
+    sql_queries.py      -  all necessary queries to create and insert queries for the staging and warehouse tables
+   
+   
+### Subfolder `plugins/operators`  
+
+    stage_redshift.py   - creates the staging tables for songs and events and copys the data from S3 to Redshift
+    load_fact.py        - creates songplays fact table and insert data
+    load_dimension.py   - creates dimension tables (user, songs, arists and time) 
+
+## V - ETL DAG
+
+![]()
+
+
+## VI - Project Workflow
 
     1. The IAM role and the Redshift cluster are created and configured via the AWS gateway -> any missing credentials are entered in dwh.cfg
     2. create_tables.py is executed in the console. After that it is checked if all tables were created correctly
