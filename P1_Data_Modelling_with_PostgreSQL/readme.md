@@ -1,7 +1,7 @@
 # Project 1 - Data Modelling with Postgres
 *Tobias Tröger, January 2022*
 
-## 1. Project Description
+## I - Project Description
 
 The startup <em>Sparkify</em> has an music streaming app that generates a lot of data about their users activity. 
 Currently the data analytics team want´s to get a deeper understanding of the listening habits of their users.
@@ -12,7 +12,7 @@ Both are available as JSON files in two separate folders.</p>
 Sparkify's analytics team needs a Postgres database optimized for analytical queries for the collected data. 
 For this, a data engineer should create a schema for the appropriate database and the corresponding ETL pipeline.
    
-## 2. Running the Python Script's   
+## II - Running the Python Script's   
   
 Both .py files that were provided for this project by Udacity reside in the main folder. These are <em>etl.py</em>
 and <em>create_tables.py.</em> Both can be executed in the console with the following commands:
@@ -23,7 +23,7 @@ and
 
 <em>python etl.py</em>
   
-## 3. Files and Data
+## III - Files and Data
 
 ### Files
 
@@ -56,7 +56,7 @@ Below an example of the raw data:
 ![](images/raw_log_data.jpg)
 
   
-## 4. Database Schema and ETL Pipeline
+## IV - Database Schema and ETL Pipeline
 
 ### Database Schema
 
@@ -83,7 +83,7 @@ The sparkifydb database and the individual tables were generated using the funct
 Finally, the transformed data is loaded into the individual tables using the functions from <em>etl.py</em>.
 
 
-## 5. Example Query
+## V - Example Query
 
 The two queries compare the frequency of app use between 'free' and 'paid' users.
 
