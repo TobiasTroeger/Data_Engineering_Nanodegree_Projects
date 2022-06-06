@@ -104,7 +104,7 @@ All files are located in the `airflow` folder.
 
 ## V - ETL DAG
 
-![]()
+![](example-dag.png)
 
 
 ## VI - Project Workflow
