@@ -100,17 +100,11 @@ All files are located in the `airflow` folder.
 
     stage_redshift.py   - creates the staging tables for songs and events and copys the data from S3 to Redshift
     load_fact.py        - creates songplays fact table and insert data
-    load_dimension.py   - creates dimension tables (user, songs, arists and time) 
+    load_dimension.py   - creates dimension tables (user, songs, arists and time)
+    data_quality.py     - runs a query against the tables to check for missing data
+
 
 ## V - ETL DAG
 
 ![](example-dag.png)
 
-
-## VI - Project Workflow
-
-    1. The IAM role and the Redshift cluster are created and configured via the AWS gateway -> any missing credentials are entered in dwh.cfg
-    2. create_tables.py is executed in the console. After that it is checked if all tables were created correctly
-    3. After that etl.py is executed. After about 20 minutes all data are entered in the tables. 
-       A sample query is executed to check whether the ETL process was executed completely and correctly.
-    4. To avoid unnecessary costs, the Redshift cluster will be deleted after the work is completed.
