@@ -1,7 +1,7 @@
 # Project 2 - Data Modelling with Apache Cassandra
 *Tobias Tröger, February 2022*
 
-![](illu_cassandra_blog-147.png)
+![](images/illu_cassandra_blog-147.png)
 
 ## 1. Project Description
 
