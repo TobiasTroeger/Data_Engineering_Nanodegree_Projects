@@ -11,7 +11,7 @@ As a prospective data engineer, my task is to model the available data using Apa
 ## 2. ETL Process  
   
 Since there are no joins in Apache Cassandra, a new table is designed from the normalized data for each question.
-The corresponding queries can be found in the `Project_1B_ Project_Template`file.
+The corresponding queries can be found in the `Project_1B_ Project_Template.ipynb`file.
   
 ## 3. Files
 
